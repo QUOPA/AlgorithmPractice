@@ -20,7 +20,11 @@ int SortTest()
 	std::vector<int> arrin = { 5, 7, 1, 7, 23, 45, 234, 67, 3, 3, 41, 2 };
 	showvector(arrin);
 	showvector(mysort::myinsertsort(arrin));
+	showvector(mysort::mymergesort(arrin));
 	
+	
+
+
 	return 0;
 }
 
