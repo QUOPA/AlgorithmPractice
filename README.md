@@ -3,5 +3,5 @@ Codes for practice on algorithms in book T. H. Cormen et al. ,"Introduction to A
 
 # Contents
 1. Sort
-  1. Insertion Sort
-  2. Merge Sort
+    1. Insertion Sort
+    2. Merge Sort
