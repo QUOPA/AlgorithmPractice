@@ -3,15 +3,19 @@
 #include "utilfns.h"
 #include "sort/mysort.h"
 #include "search/mysearch.h"
+#include "exercises/allexercises.h"
 
 
 int SortTest();
 int SearchTest();
+int ExerciseTest();
+
 
 int main()
 {
 	SortTest();
 	SearchTest();
+	ExerciseTest();
 	return 0;
 
 }
@@ -59,6 +63,16 @@ int SearchTest()
 	std::cout << mysearch::mybinarysearch(arrin3, 0.5) << std::endl;
 	std::cout << mysearch::mybinarysearchequal(arrin3, 0.5) << std::endl;
 
+
+	return 0;
+}
+
+int ExerciseTest()
+{
+	std::vector<int> arrin1 = myutil::genvector(5, 5, 0, 10, myutil::genvecopt::OPT_UNIQUE);
+	myutil::showvector(arrin1);
+	std::cout  << myexercise::checksum2benum(arrin1, 10) << std::endl;
+	
 
 	return 0;
 }
