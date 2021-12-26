@@ -2,7 +2,7 @@
 
 #include <vector>
 
-namespace mysearch
+namespace algo
 {
 
 enum LinearSearchOption

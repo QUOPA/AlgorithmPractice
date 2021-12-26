@@ -3,7 +3,7 @@
 #include <vector>
 
 
-namespace mysort 
+namespace algo 
 {
 
 template <typename T>

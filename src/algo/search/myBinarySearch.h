@@ -2,7 +2,7 @@
 
 #include <vector>
 
-namespace mysearch
+namespace algo
 {
 
 template <typename T>

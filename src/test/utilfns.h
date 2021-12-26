@@ -1,13 +1,23 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <random>
 #include <unordered_set>
 #include <algorithm>
 #include <type_traits>
 
-namespace myutil{
+#include <exception>
+
+#define REGISTERTESTCASE(FN) std::cout << "< TEST CASE : " << #FN << " >" << std::endl; \
+try { FN(); } \
+catch (std::exception & e) { std::cout << "Exception : " << e.what() <<std::endl; } \
+catch (...) { std::cout << "Exception : Unexpected" << std::endl; }
+
+#define REGISTERTESTSUITE(NS) std::cout << std::endl <<  "======== TEST SUITE : " << #NS << " ========" << std::endl; NS::TestSuite();
+
+namespace testutil{
 
 enum genvecopt // masking 
 {

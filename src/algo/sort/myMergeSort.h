@@ -3,7 +3,7 @@
 #include <vector>
 
 
-namespace mysort
+namespace algo
 {
 	template <typename T>
 	std::vector<T> mymergesort(const std::vector<T> & arrin);
@@ -15,6 +15,8 @@ namespace mysort
 	std::vector<T> mymergesort(const std::vector<T> & arrin)
 	{
 		int insize = arrin.size();
+		if (insize == 0)
+			return std::vector<T>();
 		std::vector<T> arrout = arrin;
 		std::vector<T> arrtmp(insize);
 		_mymergesortImpl(arrout, arrtmp, 0, insize);
