@@ -8,5 +8,5 @@ Codes for practice on algorithms in book T. H. Cormen et al. ,"Introduction to A
     
 3. [Subarray](https://github.com/QUOPA/AlgorithmPractice/blob/master/src/algo/subarray/)
 
-4. [Examples](https://github.com/QUOPA/AlgorithmPractice/blob/master/src/algo/examples/)
+4. [Exercises](https://github.com/QUOPA/AlgorithmPractice/blob/master/src/algo/exercises/)
 
