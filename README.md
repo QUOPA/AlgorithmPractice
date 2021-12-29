@@ -6,4 +6,7 @@ Codes for practice on algorithms in book T. H. Cormen et al. ,"Introduction to A
     
 2. [Search](https://github.com/QUOPA/AlgorithmPractice/blob/master/src/algo/search/)
     
-3. others
+3. [Subarray](https://github.com/QUOPA/AlgorithmPractice/blob/master/src/algo/subarray/)
+
+4. [Examples](https://github.com/QUOPA/AlgorithmPractice/blob/master/src/algo/examples/)
+
