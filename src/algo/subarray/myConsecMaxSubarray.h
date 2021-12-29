@@ -2,31 +2,71 @@
 
 namespace algo 
 {
+template <typename T>
+std::vector<T> myfindconsecmax_linear(const std::vector<T>& arrin);
 
 template <typename T>
-std::vector<T> myfindconsecmax(const std::vector<T>& arrin);
+std::vector<T> myfindconsecmax_dc(const std::vector<T>& arrin);
 
 template <typename T>
-void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxnextidx, int& thesum);
+void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxnextidx, T& thesum);
 
 template <typename T>
-void _findMaxCrossingSubarray(const std::vector<T>& arrin, int& minidx, int& maxnextidx, int& thesum, int halfidx);
-
+void _findMaxCrossingSubarray(const std::vector<T>& arrin, int& minidx, int& maxnextidx, T& thesum, int halfidx);
 
 template<typename T>
-std::vector<T> myfindconsecmax(const std::vector<T>& arrin)
+std::vector<T> myfindconsecmax_linear(const std::vector<T>& arrin)
 {
-	int minidx = 0; 
-	int maxnextidx = arrin.size();
-	int thenum = 0;
+	
+	int CurridxStart = 0; 
+	int CurridxEndNext = 0;
+	T CurrMaxVal = 0;
 
-	_myfindconsecmaximpl(arrin, minidx, maxnextidx, thenum);
+	int tmpTransStart = 0;
+	//int tmpTransEndNext = 0;
+	T tmpTransSum = 0;
 
-	return std::vector<T>(arrin.begin() + minidx, arrin.begin() + maxnextidx);;
+	int tmpNegEndNext = 0;
+
+	bool firstElem = true;
+
+	int ArrSize = arrin.size();
+
+
+	for (int idx = 0; idx < ArrSize; idx++)
+	{
+		tmpTransSum += arrin[idx];
+
+		if (CurrMaxVal < tmpTransSum)
+		{
+			CurrMaxVal = tmpTransSum;
+			CurridxStart = tmpTransStart;
+			CurridxEndNext = idx + 1;
+		}
+
+		if (tmpTransSum < 0)
+		{
+			tmpTransSum = 0;
+			tmpTransStart = idx + 1;
+		}
+	}
+
+	return std::vector<T>(arrin.begin() + CurridxStart, arrin.begin() + CurridxEndNext);
 }
 
 template<typename T>
-void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxnextidx, int & thesum)
+std::vector<T> myfindconsecmax_dc(const std::vector<T>& arrin)
+{
+	int minidx = 0; 
+	int maxnextidx = arrin.size();
+	T thenum = 0;
+
+	_myfindconsecmaximpl(arrin, minidx, maxnextidx, thenum);
+	return std::vector<T>(arrin.begin() + minidx, arrin.begin() + maxnextidx);
+}
+
+template<typename T>
+void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxnextidx, T & thesum)
 {
 	int subarrsize = maxnextidx - minidx;
 	if (subarrsize == 1)
@@ -49,9 +89,9 @@ void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxne
 	int halfcenter = halfleft;
 	int maxcenter = maxnextidx;
 
-	int thesumleft = thesum;
-	int thesumright = thesum;
-	int thesumcenter = thesum;
+	T thesumleft = thesum;
+	T thesumright = thesum;
+	T thesumcenter = thesum;
 
 	_myfindconsecmaximpl(arrin, minleft, halfleft, thesumleft);
 	_myfindconsecmaximpl(arrin, halfright, maxright, thesumright);
@@ -68,8 +108,7 @@ void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxne
 			done  = true;
 		}
 	}
-	
-	else if (thesumright > thesumleft)
+	else //(thesumright > thesumleft)
 	{
 		if (thesumright > thesumcenter)
 		{
@@ -92,7 +131,7 @@ void _myfindconsecmaximpl(const std::vector<T>& arrin, int & minidx, int & maxne
 }
 
 template<typename T>
-void _findMaxCrossingSubarray(const std::vector<T>& arrin, int& minidx, int& maxnextidx, int& thesum, int halfidx)
+void _findMaxCrossingSubarray(const std::vector<T>& arrin, int& minidx, int& maxnextidx, T& thesum, int halfidx)
 {
 	T maxsum = arrin[halfidx] + arrin[halfidx - 1];
 	T tmpmaxsum = maxsum;
