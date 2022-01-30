@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a2ac696b-f95d-4199-9028-d1501d68b4b9}</ProjectGuid>
-    <RootNamespace>test</RootNamespace>
+    <ProjectGuid>{4b44cfb2-58be-4115-b851-34e702ad899c}</ProjectGuid>
+    <RootNamespace>matrixtest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -96,7 +96,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +112,6 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,7 +124,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,21 +140,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ExerciseTestCases.h" />
-    <ClInclude Include="ExerciseTestSuite.h" />
-    <ClInclude Include="SearchTestCases.h" />
-    <ClInclude Include="SearchTestSuite.h" />
-    <ClInclude Include="SortTestCases.h" />
-    <ClInclude Include="SortTestSuite.h" />
-    <ClInclude Include="SubarrayTestCases.h" />
-    <ClInclude Include="SubarrayTestSuite.h" />
+    <ClCompile Include="TestMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestMain.cpp" />
+    <ClInclude Include="UnaryOperationTestCases.h" />
+    <ClInclude Include="UnaryOperationTestSuite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SubarrayTestCases.h"
-#include "utilfns.h"
+#include "testcommon/utilfns.h"
 
 namespace SubarrayTest
 {

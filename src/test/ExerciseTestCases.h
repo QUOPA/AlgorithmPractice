@@ -1,7 +1,7 @@
 #pragma once
 
 #include "exercises/myExercises.h"
-#include "utilfns.h"
+#include "testcommon/utilfns.h"
 #include <vector>
 
 using namespace algo;

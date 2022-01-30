@@ -5,7 +5,6 @@
   <PropertyGroup>
     <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)build\$(Configuration)\$(Platform)</IntDir>
-    <TargetExt>.exe</TargetExt>
     <LibraryPath>$(Outdir);$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)src;$(SolutionDir)src\algo;$(IncludePath)</IncludePath>
   </PropertyGroup>

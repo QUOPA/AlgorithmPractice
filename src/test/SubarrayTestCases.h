@@ -1,7 +1,7 @@
 #pragma once
 
 #include "subarray/mySubarray.h"
-#include "utilfns.h"
+#include "testcommon/utilfns.h"
 #include <vector>
 
 using namespace testutil;

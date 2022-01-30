@@ -15,34 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SortTestCases.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SortTestSuite.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchTestCases.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchTestSuite.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ExerciseTestCases.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ExerciseTestSuite.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SubarrayTestCases.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SubarrayTestSuite.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="TestMain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UnaryOperationTestCases.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UnaryOperationTestSuite.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

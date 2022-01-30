@@ -3,7 +3,7 @@
 #include "SearchTestSuite.h"
 #include "SubarrayTestSuite.h"
 #include "ExerciseTestSuite.h"
-#include "utilfns.h"
+#include "testcommon/utilfns.h"
 
 
 int main()

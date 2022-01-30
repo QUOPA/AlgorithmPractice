@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SearchTestCases.h"
-#include "utilfns.h"
+#include "testcommon/utilfns.h"
 
 
 namespace SearchTest
