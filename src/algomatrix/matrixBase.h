@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "algomatrix/mytypes.h"
 #include "algomatrix/matrixUnaryOperations.h"
 
@@ -16,8 +17,8 @@ public:
 	inline IdxType getCols() const { return derived()->getCols(); }
 
 	// Operations (read / write)
-	inline const auto t() const { return myMatrixUnary<T, myMatrixBase, UNARY_TRANSPOSE>(this); }
-	inline auto t() { return myMatrixUnary<T, myMatrixBase, UNARY_TRANSPOSE>(this); }
+	//inline const auto t() const { return myMatrixUnary<T, myMatrixBase, UNARY_TRANSPOSE>(this); }
+	//inline auto t() { return myMatrixUnary<T, myMatrixBase, UNARY_TRANSPOSE>(this); }
 
 	// assingment (non const only)
 	template<typename T, typename OtherMat>

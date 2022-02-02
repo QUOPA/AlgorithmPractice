@@ -13,6 +13,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algomatrix", "src\algomatrix\algomatrix.vcxproj", "{0B4D061B-D599-4730-9DC8-56CB6A284B3F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrixtest", "src\matrixtest\matrixtest.vcxproj", "{4B44CFB2-58BE-4115-B851-34E702AD899C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B4D061B-D599-4730-9DC8-56CB6A284B3F} = {0B4D061B-D599-4730-9DC8-56CB6A284B3F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
