@@ -152,6 +152,7 @@
     <ClInclude Include="matrixBinaryOperations.h" />
     <ClInclude Include="matrixExceptions.h" />
     <ClInclude Include="matrixUnaryOperations.h" />
+    <ClInclude Include="matrixUtils.h" />
     <ClInclude Include="myTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

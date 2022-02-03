@@ -4,10 +4,8 @@
 #include "algomatrix/matrixexceptions.h"
 #include <vector>
 
-
-
 template <typename T>
-class myMatrix : myMatrixBase<T, myMatrix<T>>
+class myMatrix : public myMatrixBase<T, myMatrix<T>>
 {
 public:
 	myMatrix(const T* & datain, IdxType nRows, IdxType nCols);
@@ -15,11 +13,14 @@ public:
 
 	myMatrix(const std::vector<T> & datain, IdxType nRows, IdxType nCols);	
 
+	template<typename OtherMat>
+	myMatrix(const myMatrixBase<T, OtherMat>& rhs) { this->operator=(rhs); }
+
 	inline IdxType getSize() const { return m_nRows * m_nCols; }
 	inline IdxType getRows() const { return m_nRows; }
 	inline IdxType getCols() const { return m_nCols; }
 
-	inline void operator=(const myMatrix<T>& rhs) 
+	void operator=(const myMatrix& rhs) 
 	{
 		if (!renewDataMemory(rhs.getSize()))
 			throw matrix_rangeerror("Failed to renew data memory of size :" + std::to_string(rhs.getSize()));
@@ -32,17 +33,31 @@ public:
 		memcpy(m_pData, rhs.m_pData, nSize);
 	}
 
-	inline void operator=(myMatrix<T> && rhs) 
+	void operator=(myMatrix && rhs) 
 	{  
 		std::swap(m_pData, rhs.m_pData);
 		std::swap(m_nRows, rhs.m_nRows);
 		std::swap(m_nCols, rhs.m_nCols);
 	}
 
-	template<typename T, typename OtherMat>
-	inline void operator=(const myMatrixBase<T, OtherMat>& rhs) { rhs; }
+	template<typename OtherMat>
+	void operator=(const myMatrixBase<T, OtherMat>& rhs)
+	{ 
+		if (!renewDataMemory(rhs.getSize()))
+			throw matrix_rangeerror("Failed to renew data memory of size :" + std::to_string(rhs.getSize()));
 
-	
+		m_nRows = rhs.getRows();
+		m_nCols = rhs.getCols();
+
+		for (IdxType r = 0; r < m_nRows; ++r)
+			for (IdxType c = 0; c < m_nCols; ++c)
+				*_v(r, c) = *rhs._v(r, c);
+
+	}
+
+protected:
+	inline const T* _v(IdxType r, IdxType c) const { return m_pData + r * m_nCols + c; }
+	inline T* _v(IdxType r, IdxType c) { return m_pData + r * m_nCols + c; }
 	
 
 private:
@@ -57,6 +72,10 @@ private:
 	T* m_pData;
 	IdxType m_nRows;
 	IdxType m_nCols;
+
+	template <typename T2, typename Derived2>
+	friend class myMatrixBase;
+
 };
 
 template<typename T>
@@ -67,9 +86,12 @@ myMatrix<T>::myMatrix(const T*& datain, IdxType nRows, IdxType nCols)
 
 	m_pData = new T[nRows * nCols];
 
-	for (IdxType r = 0; r < nRows; ++r)
-		for (IdxType c = 0; c < nCols; ++c)
-			m_pData[r * nCols + c] = datain[r * nCols + c];
+	m_nRows = nRows;
+	m_nCols = nCols;
+
+	for (IdxType r = 0; r < m_nRows; ++r)
+		for (IdxType c = 0; c < m_nCols; ++c)
+			m_pData[r * m_nCols + c] = datain[r * m_nCols + c];
 
 }
 
@@ -82,6 +104,10 @@ myMatrix<T>::myMatrix(T*&& datain, IdxType nRows, IdxType nCols)
 	m_pData = datain;
 	datain = nullptr;
 
+	m_nRows = nRows;
+	m_nCols = nCols;
+
+
 }
 
 template<typename T>
@@ -92,7 +118,10 @@ myMatrix<T>::myMatrix(const std::vector<T>& datain, IdxType nRows, IdxType nCols
 
 	m_pData = new T[nRows * nCols];
 
-	for (IdxType r = 0; r < nRows; ++r)
-		for (IdxType c = 0; c < nCols; ++c)
-			m_pData[r * nCols + c] = datain[r * nCols + c];
+	m_nRows = nRows;
+	m_nCols = nCols;
+
+	for (IdxType r = 0; r < m_nRows; ++r)
+		for (IdxType c = 0; c < m_nCols; ++c)
+			m_pData[r * m_nCols + c] = datain[r * m_nCols + c];
 }
