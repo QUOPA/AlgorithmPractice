@@ -9,6 +9,7 @@ namespace unaryoperation
 void TestSuite()
 {
 	REGISTERTESTCASE(transpose)
+	REGISTERTESTCASE(transposeAssignment)
 
 }
 

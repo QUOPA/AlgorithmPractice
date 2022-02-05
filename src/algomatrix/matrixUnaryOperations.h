@@ -54,7 +54,7 @@ public:
 		{
 			for (IdxType r = 0; r < this->m_pInMat->getCols(); ++r)
 			{
-				this->m_pInMat->_v(c, r) = rhs._v(r, c);
+				*this->m_pInMat->_v(c, r) = *rhs._v(r, c);
 			}
 		}
 	}

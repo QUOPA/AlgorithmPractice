@@ -8,6 +8,10 @@ template <typename T>
 class myMatrix : public myMatrixBase<T, myMatrix<T>>
 {
 public:
+	myMatrix()
+		:m_pData(nullptr), m_nRows(0), m_nCols(0)
+	{}
+
 	myMatrix(const T* & datain, IdxType nRows, IdxType nCols);
 	myMatrix(T* && datain, IdxType nRows, IdxType nCols);
 
